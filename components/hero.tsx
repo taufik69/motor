@@ -12,8 +12,8 @@ import { FlickeringGrid } from "./ui/flickering-grid";
 
 interface Hero1Props {
   badge?: string;
-  heading: string;
-  description: string;
+  heading?: string;
+  description?: string;
   buttons?: {
     primary?: {
       text: string;
@@ -24,7 +24,7 @@ interface Hero1Props {
       url: string;
     };
   };
-  image: {
+  image?: {
     src: string;
     alt: string;
   };
@@ -97,7 +97,7 @@ const Hero = ({
 
         {/* hero contet */}
 
-        <div className=" flex justify-center w-full py-10 rounded ">
+        {/* <div className=" flex justify-center w-full py-10 rounded ">
           <TypingAnimation
             words={[
               "যেকোনো বাইক এক্সচেঞ্জ করলেই Hornet 2.0-তে পাচ্ছেন 💸 ৫,০০০ টাকা ক্যাশব্যাক! 🎉 পুরোনো বাইক দিন → নতুন Hornet 2.0 নিন 💰 পাচ্ছেন ৫,০০০৳ ক্যাশব্যাক!",
@@ -110,7 +110,7 @@ const Hero = ({
             typeSpeed={200}
             loop
           />
-        </div>
+        </div> */}
 
         {/* <div className="flex justify-center  items-center gap-x-7">
           {buttons.primary && (

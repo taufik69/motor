@@ -1,20 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import {
-  AccessibilityIcon,
-  Bike,
   BikeIcon,
   Book,
   CarFrontIcon,
   Contact,
-  ContactRound,
   GalleryVertical,
   Menu,
   ServerIcon,
-  Settings2,
   Sunset,
   Trees,
-  Zap,
+  Bike,
 } from "lucide-react";
 
 import {
@@ -79,7 +77,7 @@ const Navbar = ({
   menu = [
     { title: "Home", url: "#" },
     {
-      title: "our collection",
+      title: "Our collection",
       url: "#",
       items: [
         {
@@ -172,9 +170,29 @@ const Navbar = ({
     signup: { title: "Sign up", url: "#" },
   },
 }: Navbar1Props) => {
+  // 🔥 Scroll Animation State
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="py-4">
-      <div className="container">
+    <section
+      className={`py-4 sticky top-0 w-full z-50 backdrop-blur-md bg-primary-foreground/80 shadow-sm transition-all duration-300 ${
+        scrolled ? "translate-y-2 " : "translate-y-0"
+      }`}
+    >
+      <div className="container mx-auto">
         {/* Desktop Menu */}
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -197,8 +215,10 @@ const Navbar = ({
               </NavigationMenu>
             </div>
           </div>
+
           {/* search box */}
           <SearchInput />
+
           <div className="flex gap-2">
             <Button asChild variant="outline" size="sm">
               <a href={auth.login.url}>{auth.login.title}</a>
@@ -220,12 +240,14 @@ const Navbar = ({
                 alt={logo.alt}
               />
             </a>
+
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
+
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
@@ -238,6 +260,7 @@ const Navbar = ({
                     </a>
                   </SheetTitle>
                 </SheetHeader>
+
                 <div className="flex flex-col gap-6 p-4">
                   <Accordion
                     type="single"
@@ -247,8 +270,8 @@ const Navbar = ({
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
 
-                  {/* search box */}
                   <SearchInput />
+
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">
                       <a href={auth.login.url}>{auth.login.title}</a>
@@ -267,6 +290,7 @@ const Navbar = ({
   );
 };
 
+// Sub Components
 const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
@@ -287,7 +311,7 @@ const renderMenuItem = (item: MenuItem) => {
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
         href={item.url}
-        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors"
+        className=" hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors"
       >
         {item.title}
       </NavigationMenuLink>

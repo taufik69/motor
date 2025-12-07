@@ -19,7 +19,7 @@ export function QuickAccess() {
     {
       id: 1,
       title: "New Bikes",
-      img: "https://static.vecteezy.com/system/resources/previews/033/879/388/non_2x/speed-unleashed-sports-bike-mastery-on-the-road-ins-sports-bike-magic-vector.jpg",
+      img: "https://cdn.vectorstock.com/i/500p/45/38/cartoon-biker-motorcycle-rider-vector-21024538.jpg",
     },
     {
       id: 2,
@@ -33,15 +33,22 @@ export function QuickAccess() {
     },
     {
       id: 4,
-      title: "Repairs Shops",
+      title: "Service Center",
       img: "https://cdn.vectorstock.com/i/1000v/36/32/automotive-repair-shop-vector-15143632.jpg",
+    },
+    {
+      id: 5,
+      title: "Contact Us",
+      img: "https://cdn.vectorstock.com/i/500p/45/38/cartoon-biker-motorcycle-rider-vector-21024538.jpg",
     },
   ];
   return (
-    <div className="py-20 flex  items-center justify-center gap-x-6 overflow-x-auto">
+    <div className="py-20 grid  grid-cols-2 md:grid-cols-2 md:grid-cols-5 place-items-center gap-y-5 md:gap-x-2 overflow-x-auto">
       {accesinfo.map((item) => (
         <Card
-          className="relative w-[350px] overflow-hidden hover:shadow-lg p-4 rounded-lg transition-shadow duration-300"
+          className={`relative w-[170px] md:w-[250px] ${
+            item.id === accesinfo.length && "col-span-2  md:col-span-1 w-full "
+          }  overflow-hidden hover:shadow-lg  rounded-lg  transition-shadow duration-300 ease-in-out`}
           key={item.id}
         >
           <CardContent>
@@ -49,15 +56,17 @@ export function QuickAccess() {
               <span>
                 <Image
                   src={item.img}
-                  width={100}
-                  height={100}
+                  width={80}
+                  height={80}
                   alt="new bikes"
                   className="w-full h-20 object-cover"
                 />
               </span>
 
               <div className="flex items-center gap-x-2">
-                <h1 className="text-2xl font-medium">{item.title}</h1>
+                <h1 className="text-sm sm:text-2xl font-medium">
+                  {item.title}
+                </h1>
                 <ArrowRightLeft />
               </div>
             </div>
