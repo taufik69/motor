@@ -24,7 +24,9 @@ export function CustomerReview() {
       <Card className="max-w-md mx-auto p-6 shadow-lg rounded-lg cursor-pointer">
         <CardContent className="flex flex-col gap-4">
           {/* Testimonial text */}
-          <p className="text-gray-700 text-base">{testimonial.text}</p>
+          <p className="text-primary text-medium text-justify w-full truncate h-24 text-wrap">
+            {testimonial.text}
+          </p>
 
           {/* Footer: Avatar + Name + Location */}
           <div className="flex items-center gap-4 mt-4">
@@ -39,10 +41,10 @@ export function CustomerReview() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-medium text-gray-900">
+              <span className="font-medium text-primary">
                 {testimonial.name}
               </span>
-              <span className="text-gray-500 text-sm">
+              <span className="text-primary/60 text-sm">
                 {testimonial.location}
               </span>
             </div>

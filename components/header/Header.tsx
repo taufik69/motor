@@ -189,7 +189,7 @@ const Navbar = ({
   return (
     <section
       className={`py-4 sticky top-0 w-full z-50 backdrop-blur-md bg-primary-foreground/80 shadow-sm transition-all duration-300 ${
-        scrolled ? "translate-y-2 " : "translate-y-0"
+        scrolled ? "translate-y-1 " : "translate-y-0"
       }`}
     >
       <div className="container mx-auto">

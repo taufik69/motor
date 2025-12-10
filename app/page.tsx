@@ -20,11 +20,6 @@ const Home = () => {
       />
       <VedioReview />
       <CustomerReview />
-      <div className="w-40 h-20 bg-BlueTeal"></div>
-      <div className="w-40 h-20 bg-deepTeal"></div>
-      <div className="w-40 h-20 bg-OceanTeal"></div>
-      <div className="w-40 h-20 bg-Blackdark"></div>
-      <div className="w-40 h-20 bg-Ivorylight"></div>
     </div>
   );
 };

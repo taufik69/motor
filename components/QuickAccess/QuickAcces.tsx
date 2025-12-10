@@ -43,7 +43,7 @@ export function QuickAccess() {
     },
   ];
   return (
-    <div className="py-20 grid  grid-cols-2 md:grid-cols-2 md:grid-cols-5 place-items-center gap-y-5 md:gap-x-2 overflow-x-auto">
+    <div className="py-20 grid  grid-cols-2 md:grid-cols-5 place-items-center gap-y-5 md:gap-x-2 overflow-x-auto">
       {accesinfo.map((item) => (
         <Card
           className={`relative w-[170px] md:w-[250px] ${
@@ -64,9 +64,7 @@ export function QuickAccess() {
               </span>
 
               <div className="flex items-center gap-x-2">
-                <h1 className="text-sm sm:text-2xl font-medium">
-                  {item.title}
-                </h1>
+                <h1 className="text-sm sm:text-xl font-medium">{item.title}</h1>
                 <ArrowRightLeft />
               </div>
             </div>
