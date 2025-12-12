@@ -30,8 +30,8 @@ const BikeCard: React.FC<BikeCardProps> = ({ bike, className }) => {
       )}
 
       {/* Image */}
-      <div className="relative h-[290px] w-full overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
-        <Link href={`/bikedetails/${bike.id}`}>
+      <Link href={`/bikedetails/${bike.id}`}>
+        <div className="relative h-[290px] w-full overflow-hidden bg-linear-to-br ">
           <Image
             src={bike.image}
             alt={bike.title}
@@ -39,11 +39,11 @@ const BikeCard: React.FC<BikeCardProps> = ({ bike, className }) => {
             className="w-full h-full object-cover  transition-transform duration-500 group-hover:scale-110"
             priority
           />
-        </Link>
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      </div>
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+      </Link>
 
       {/* Info */}
       <div className="p-5 space-y-2">

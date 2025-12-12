@@ -69,13 +69,13 @@ interface Navbar1Props {
 
 const Navbar = ({
   logo = {
-    url: "https://www.shadcnblocks.com",
+    url: "/",
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
     alt: "logo",
     title: "Shadcnblocks.com",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Home", url: "/" },
     {
       title: "Our collection",
       url: "#",
@@ -84,26 +84,26 @@ const Navbar = ({
           title: "Honda",
           description: "The latest industry news, updates, and info",
           icon: <BikeIcon className="size-5 shrink-0" />,
-          url: "#",
+          url: "bike",
         },
         {
           title: "Royal Enfiled",
           description: "Our mission is to innovate and empower the world",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
+          url: "bike",
         },
         {
           title: "Bajaj",
           description: "Browse job listing and discover our workspace",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
+          url: "bike",
         },
         {
           title: "Yamaha",
           description:
             "Get in touch with our support team or visit our community forums",
           icon: <Bike className="size-5 shrink-0" />,
-          url: "#",
+          url: "bike",
         },
 
         {
@@ -111,14 +111,14 @@ const Navbar = ({
           description:
             "Get in touch with our support team or visit our community forums",
           icon: <CarFrontIcon className="size-5 shrink-0" />,
-          url: "#",
+          url: "bike",
         },
         {
           title: "See More Bikes",
           description:
             "Get in touch with our support team or visit our community forums",
           icon: <BikeIcon className="size-5 shrink-0" />,
-          url: "#",
+          url: "bike",
         },
       ],
     },
@@ -130,7 +130,7 @@ const Navbar = ({
           title: "Accessories",
           description: "Get all the answers you need right here",
           icon: <GalleryVertical className="size-5 shrink-0" />,
-          url: "#",
+          url: "accesories",
         },
         {
           title: "Contact Us",
@@ -154,7 +154,7 @@ const Navbar = ({
     },
     {
       title: "Upcoming Bike",
-      url: "#",
+      url: "upcomingbike",
     },
     {
       title: "Sell Now",

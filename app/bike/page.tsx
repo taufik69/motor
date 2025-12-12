@@ -46,7 +46,7 @@ const Collection = () => {
       {/* Virtualized Grid */}
       <div
         ref={parentRef}
-        className="flex-1 h-[calc(100vh-100px)] overflow-auto"
+        className="flex-1 h-[calc(100vh-0px)] overflow-auto"
         style={{ contain: "strict" }}
       >
         <div
