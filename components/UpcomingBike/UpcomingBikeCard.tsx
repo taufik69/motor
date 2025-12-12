@@ -43,7 +43,7 @@ const UpcomingBikeCard: React.FC<UpcomingBikeCardProps> = ({
       </div>
 
       {/* Image */}
-      <div className="relative h-[300px] w-full overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
+      <div className="relative h-[334px] w-full overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
         <Link href={`/upcoming-bikes/${bike.id}`}>
           <Image
             src={bike.image}
