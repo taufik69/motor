@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import BikeCard from "../CommonComponents/BikeCard";
 
 export default function BikeGrid() {
   const [showAll, setShowAll] = useState(false);
@@ -17,6 +18,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: true,
+      run: "100",
     },
     {
       id: 2,
@@ -26,6 +28,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
     {
       id: 3,
@@ -35,6 +38,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
     {
       id: 4,
@@ -44,6 +48,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
     {
       id: 5,
@@ -53,6 +58,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
     {
       id: 6,
@@ -62,6 +68,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: true,
+      run: "100",
     },
     {
       id: 7,
@@ -71,6 +78,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
     {
       id: 8,
@@ -80,6 +88,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
     {
       id: 9,
@@ -89,6 +98,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: true,
+      run: "100",
     },
     {
       id: 10,
@@ -98,6 +108,7 @@ export default function BikeGrid() {
       image:
         "https://admin.sawaribd.com/storage/product_image/eMnz3Y2DVHREFyeFKVRxiSOR0dgbIec5r4TZWNTt.png",
       stockOut: false,
+      run: "100",
     },
   ];
 
@@ -108,75 +119,7 @@ export default function BikeGrid() {
     <div className="mx-auto py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {visibleProducts.map((item) => (
-          <div
-            key={item.id}
-            className="
-            cursor-pointer
-              relative w-full max-w-[380px] h-[410px]
-              rounded-2xl overflow-hidden
-              border bg-white shadow
-              transition-all duration-300
-              hover:-translate-y-1 hover:shadow-xl
-              group
-            "
-          >
-            {/* Stock Badge */}
-            {item.stockOut && (
-              <div className="absolute top-3 right-4 bg-red-500 text-white text-xs px-4 py-1.5 rounded-full z-10">
-                Stock Out
-              </div>
-            )}
-
-            {/* Image */}
-            <div className="relative h-[200px] w-full overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="
-                  w-full h-full object-contain
-                  transition-transform duration-300
-                  group-hover:scale-110 group-hover:-translate-y-1
-                "
-                priority
-              />
-            </div>
-
-            {/* Info */}
-            <div className="p-4 space-y-2">
-              <h3 className="text-sm font-semibold leading-snug">
-                {item.title}
-              </h3>
-
-              <h2 className="text-[13px] text-zinc-600">Run: 3000 Km</h2>
-
-              <p className="text-blue-600 font-bold text-lg">{item.price}</p>
-
-              <p className="text-xs text-zinc-600">
-                Available Colors:{" "}
-                <span className="font-semibold text-black">{item.color}</span>
-              </p>
-
-              {/* Buttons */}
-              <div className="flex gap-2 pt-3">
-                <Button
-                  className="flex-1 rounded-full bg-primary hover:bg-primary/90 text-xs"
-                  disabled={item.stockOut}
-                >
-                  BUY NOW
-                </Button>
-
-                <Button
-                  variant="outline"
-                  className="flex-1 rounded-full flex gap-2 text-xs"
-                  disabled={item.stockOut}
-                >
-                  <ShoppingCart size={14} />
-                  Add to Cart
-                </Button>
-              </div>
-            </div>
-          </div>
+          <BikeCard key={item.id} bike={item} className="w-full" />
         ))}
       </div>
 

@@ -5,8 +5,6 @@
 
 @theme inline {
 
-
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -68,7 +66,6 @@
   --color-OceanTeal: var(--OceanTeal);
   --color-Blackdark: var(--Blackdark);
   --color-Ivorylight: var(--Ivorylight);
-
 
 ;
   @keyframes rainbow {

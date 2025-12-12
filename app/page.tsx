@@ -1,6 +1,5 @@
 import { CustomerReview } from "@/components/CustomerReview/CustomerReview";
-import { Footer } from "@/components/footer2";
-import Navbar from "@/components/header/Header";
+
 import { Hero } from "@/components/hero";
 
 import { QuickAccess } from "@/components/QuickAccess/QuickAcces";
