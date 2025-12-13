@@ -133,10 +133,10 @@ const Navbar = ({
           url: "/accesories",
         },
         {
-          title: "Contact Us",
+          title: "Sell Now",
           description: "We are here to help you with any questions you have",
           icon: <Contact className="size-5 shrink-0" />,
-          url: "/contact",
+          url: "#",
         },
         {
           title: "Servicing",
@@ -148,7 +148,7 @@ const Navbar = ({
           title: "Blog",
           description: "Our terms and conditions for using our services",
           icon: <Book className="size-5 shrink-0" />,
-          url: "#",
+          url: "/blog",
         },
       ],
     },
@@ -156,13 +156,14 @@ const Navbar = ({
       title: "Upcoming Bike",
       url: "/upcomingbike",
     },
-    {
-      title: "Sell Now",
-      url: "#",
-    },
+
     {
       title: "Pre order",
-      url: "#",
+      url: "/preorder",
+    },
+    {
+      title: "Contact Us",
+      url: "/contact",
     },
   ],
   auth = {

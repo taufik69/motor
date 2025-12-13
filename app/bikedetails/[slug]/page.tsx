@@ -2,7 +2,7 @@ import BikeDetailsComponents from "@/components/creative-tim/blocks/simple-produ
 
 const BikeDetails = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <BikeDetailsComponents />
     </div>
   );

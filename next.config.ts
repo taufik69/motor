@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: "admin.sawaribd.com",
         pathname: "/storage/product_image/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+        
+      },
     ],
   },
 };

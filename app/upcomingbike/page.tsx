@@ -50,92 +50,94 @@ const UpcomingBikesCollection = () => {
   });
 
   return (
-    <div className="min-h-screen">
-      {/* Page Header */}
-      <div className="bg-linear-to-r from-primary/90 to-primary/60  text-white py-12 px-4 my-8 mb-20 rounded-2xl">
-        <div className="container mx-auto">
-          <h1 className="text-5xl font-bold mb-4">Upcoming Bikes</h1>
-          <p className="text-blue-100 text-lg">
-            Discover the latest motorcycles launching soon in Bangladesh
-          </p>
-          <div className="flex gap-6 mt-6 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span>{bikes.length} Bikes Expected</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-              <span>Pre-Orders Available</span>
+    <div className="container mx-auto">
+      <div className="min-h-screen">
+        {/* Page Header */}
+        <div className="bg-linear-to-r from-primary/90 to-primary/60  text-white py-12 px-4 my-8 mb-20 rounded-2xl">
+          <div className="container mx-auto">
+            <h1 className="text-5xl font-bold mb-4">Upcoming Bikes</h1>
+            <p className="text-blue-100 text-lg">
+              Discover the latest motorcycles launching soon in Bangladesh
+            </p>
+            <div className="flex gap-6 mt-6 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span>{bikes.length} Bikes Expected</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                <span>Pre-Orders Available</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-start mt-8 gap-6">
-          {/* Sidebar */}
-          <div className="sticky top-20">
-            <MotorcycleFilterSidebar />
-          </div>
-
-          {/* Virtualized Grid */}
-          <div className="flex-1">
-            {/* Results Header */}
-            <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-              <h2 className="text-2xl font-bold text-primary">
-                All Upcoming Bikes
-                <span className="ml-3 text-sm font-normal text-primary/50">
-                  ({bikes.length} results)
-                </span>
-              </h2>
-              <select className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 focus:outline-none cursor-pointer">
-                <option>Sort by Launch Date</option>
-                <option>Sort by Price: Low to High</option>
-                <option>Sort by Price: High to Low</option>
-                <option>Sort by Brand</option>
-              </select>
+        {/* Main Content */}
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-start mt-8 gap-6">
+            {/* Sidebar */}
+            <div className="sticky top-20">
+              <MotorcycleFilterSidebar />
             </div>
 
-            {/* Virtualized List */}
-            <div
-              ref={parentRef}
-              className="h-[calc(100vh-70px)] overflow-auto"
-              style={{ contain: "strict" }}
-            >
-              <div
-                style={{
-                  height: `${rowVirtualizer.getTotalSize()}px`,
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                  const startIndex = virtualRow.index * ITEMS_PER_ROW;
-                  const rowBikes = bikes.slice(
-                    startIndex,
-                    startIndex + ITEMS_PER_ROW
-                  );
+            {/* Virtualized Grid */}
+            <div className="flex-1">
+              {/* Results Header */}
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+                <h2 className="text-2xl font-bold text-primary">
+                  All Upcoming Bikes
+                  <span className="ml-3 text-sm font-normal text-primary/50">
+                    ({bikes.length} results)
+                  </span>
+                </h2>
+                <select className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 focus:outline-none cursor-pointer">
+                  <option>Sort by Launch Date</option>
+                  <option>Sort by Price: Low to High</option>
+                  <option>Sort by Price: High to Low</option>
+                  <option>Sort by Brand</option>
+                </select>
+              </div>
 
-                  return (
-                    <div
-                      key={virtualRow.key}
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        transform: `translateY(${virtualRow.start}px)`,
-                      }}
-                    >
-                      <div className="grid grid-cols-3 place-items-start gap-6 mb-6">
-                        {rowBikes.map((bike) => (
-                          <UpcomingBikeCard key={bike.id} bike={bike} />
-                        ))}
+              {/* Virtualized List */}
+              <div
+                ref={parentRef}
+                className="h-[calc(100vh-70px)] overflow-auto"
+                style={{ contain: "strict" }}
+              >
+                <div
+                  style={{
+                    height: `${rowVirtualizer.getTotalSize()}px`,
+                    width: "100%",
+                    position: "relative",
+                  }}
+                >
+                  {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                    const startIndex = virtualRow.index * ITEMS_PER_ROW;
+                    const rowBikes = bikes.slice(
+                      startIndex,
+                      startIndex + ITEMS_PER_ROW
+                    );
+
+                    return (
+                      <div
+                        key={virtualRow.key}
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          transform: `translateY(${virtualRow.start}px)`,
+                        }}
+                      >
+                        <div className="grid grid-cols-3 place-items-start gap-6 mb-6">
+                          {rowBikes.map((bike) => (
+                            <UpcomingBikeCard key={bike.id} bike={bike} />
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

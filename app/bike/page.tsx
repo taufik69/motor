@@ -37,7 +37,7 @@ const Collection = () => {
   });
 
   return (
-    <div className="flex justify-between items-start mt-14 gap-6">
+    <div className="flex justify-between items-start mt-14 gap-6 container mx-auto">
       {/* Sidebar */}
       <div className="sticky top-14">
         <MotorcycleFilterSidebar />

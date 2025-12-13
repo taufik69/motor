@@ -8,7 +8,7 @@ import VedioReview from "@/components/VedioReview/VedioReview";
 
 const Home = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <Hero />
       <QuickAccess />
       <UsedBike title="Used Bike" className="mt-0 text-3xl" />

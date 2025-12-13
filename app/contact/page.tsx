@@ -67,7 +67,7 @@ export default function ContactUsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100 ">
       {/* Scrolling Hotline Banner */}
       <div className="bg-linear-to-r from-black via-gray-800 to-black text-white py-3 overflow-hidden relative">
         <div className="flex whitespace-nowrap animate-marquee">
