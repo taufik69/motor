@@ -84,26 +84,26 @@ const Navbar = ({
           title: "Honda",
           description: "The latest industry news, updates, and info",
           icon: <BikeIcon className="size-5 shrink-0" />,
-          url: "bike",
+          url: "/bike",
         },
         {
           title: "Royal Enfiled",
           description: "Our mission is to innovate and empower the world",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "bike",
+          url: "/bike",
         },
         {
           title: "Bajaj",
           description: "Browse job listing and discover our workspace",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "bike",
+          url: "/bike",
         },
         {
           title: "Yamaha",
           description:
             "Get in touch with our support team or visit our community forums",
           icon: <Bike className="size-5 shrink-0" />,
-          url: "bike",
+          url: "/bike",
         },
 
         {
@@ -111,14 +111,14 @@ const Navbar = ({
           description:
             "Get in touch with our support team or visit our community forums",
           icon: <CarFrontIcon className="size-5 shrink-0" />,
-          url: "bike",
+          url: "/bike",
         },
         {
           title: "See More Bikes",
           description:
             "Get in touch with our support team or visit our community forums",
           icon: <BikeIcon className="size-5 shrink-0" />,
-          url: "bike",
+          url: "/bike",
         },
       ],
     },
@@ -130,19 +130,19 @@ const Navbar = ({
           title: "Accessories",
           description: "Get all the answers you need right here",
           icon: <GalleryVertical className="size-5 shrink-0" />,
-          url: "accesories",
+          url: "/accesories",
         },
         {
           title: "Contact Us",
           description: "We are here to help you with any questions you have",
           icon: <Contact className="size-5 shrink-0" />,
-          url: "contact",
+          url: "/contact",
         },
         {
           title: "Servicing",
           description: "Check the current status of our services and APIs",
           icon: <ServerIcon className="size-5 shrink-0" />,
-          url: "#",
+          url: "/service",
         },
         {
           title: "Blog",
@@ -154,7 +154,7 @@ const Navbar = ({
     },
     {
       title: "Upcoming Bike",
-      url: "upcomingbike",
+      url: "/upcomingbike",
     },
     {
       title: "Sell Now",

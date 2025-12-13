@@ -88,7 +88,7 @@ export default function ServiceBookingPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -122,9 +122,9 @@ export default function ServiceBookingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100">
       {/* Scrolling Hotline Banner */}
-      <div className="bg-gradient-to-r from-black via-gray-800 to-black text-white py-3 overflow-hidden relative">
+      <div className="bg-linear-to-r from-black via-gray-800 to-black text-white py-3 overflow-hidden relative">
         <div className="flex whitespace-nowrap animate-marquee">
           {[...Array(10)].map((_, i) => (
             <div key={i} className="inline-flex items-center gap-3 mx-8">
@@ -140,16 +140,16 @@ export default function ServiceBookingPage() {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-gray-500/5 to-black/5"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-black/5 via-gray-500/5 to-black/5"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 mb-6 px-5 py-2 bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 rounded-full shadow-sm">
+            <div className="inline-flex items-center gap-2 mb-6 px-5 py-2 bg-linear-to-r from-gray-100 to-gray-200 border border-gray-300 rounded-full shadow-sm">
               <Wrench className="h-5 w-5 text-black" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">
+              <span className="text-sm font-semibold bg-linear-to-r from-black to-gray-600 bg-clip-text text-transparent">
                 Professional Service
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-black via-gray-700 to-gray-500 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-linear-to-r from-black via-gray-700 to-gray-500 bg-clip-text text-transparent leading-tight">
               বাইক সার্ভিসিং বুকিং
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
@@ -164,7 +164,7 @@ export default function ServiceBookingPage() {
       <section className="py-16 -mt-8">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-black to-gray-700 bg-clip-text text-transparent mb-4">
               Choose Your Service Package
             </h2>
             <p className="text-gray-600">
@@ -183,7 +183,7 @@ export default function ServiceBookingPage() {
                     group relative cursor-pointer rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2
                     ${
                       selectedService === pkg.id
-                        ? "bg-gradient-to-br from-black via-gray-800 to-gray-700 text-white shadow-2xl scale-105"
+                        ? "bg-linear-to-br from-black via-gray-800 to-gray-700 text-white shadow-2xl scale-105"
                         : "bg-white hover:shadow-2xl border-2 border-gray-200 hover:border-gray-400"
                     }
                     ${pkg.popular ? "ring-4 ring-black/20" : ""}
@@ -191,7 +191,7 @@ export default function ServiceBookingPage() {
                 >
                   {pkg.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="px-4 py-1 bg-gradient-to-r from-black to-gray-700 text-white text-xs font-bold rounded-full shadow-lg">
+                      <div className="px-4 py-1 bg-linear-to-r from-black to-gray-700 text-white text-xs font-bold rounded-full shadow-lg">
                         POPULAR
                       </div>
                     </div>
@@ -204,7 +204,7 @@ export default function ServiceBookingPage() {
                       ${
                         selectedService === pkg.id
                           ? "bg-white/20"
-                          : "bg-gradient-to-br from-black via-gray-800 to-gray-700"
+                          : "bg-linear-to-br from-black via-gray-800 to-gray-700"
                       }
                     `}
                     >
@@ -228,7 +228,7 @@ export default function ServiceBookingPage() {
                       className={`text-4xl font-bold mb-1 ${
                         selectedService === pkg.id
                           ? "text-white"
-                          : "bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent"
+                          : "bg-linear-to-r from-black to-gray-700 bg-clip-text text-transparent"
                       }`}
                     >
                       {pkg.price}
@@ -249,7 +249,7 @@ export default function ServiceBookingPage() {
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2
-                          className={`h-5 w-5 flex-shrink-0 mt-0.5 ${
+                          className={`h-5 w-5 shrink-0 mt-0.5 ${
                             selectedService === pkg.id
                               ? "text-white"
                               : "text-black"
@@ -274,7 +274,7 @@ export default function ServiceBookingPage() {
                       ${
                         selectedService === pkg.id
                           ? "bg-white text-black hover:bg-gray-100"
-                          : "bg-gradient-to-r from-black to-gray-700 text-white hover:from-gray-800 hover:to-gray-600"
+                          : "bg-linear-to-r from-black to-gray-700 text-white hover:from-gray-800 hover:to-gray-600"
                       }
                     `}
                   >
@@ -290,12 +290,12 @@ export default function ServiceBookingPage() {
       </section>
 
       {/* Booking Form */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-200">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent mb-3">
+                <h2 className="text-3xl font-bold bg-linear-to-r from-black to-gray-700 bg-clip-text text-transparent mb-3">
                   Book Your Service
                 </h2>
                 <p className="text-gray-600">
@@ -305,7 +305,7 @@ export default function ServiceBookingPage() {
 
               {!selectedService && (
                 <div className="mb-6 p-4 bg-gray-100 border-l-4 border-gray-600 rounded-lg flex items-start gap-3">
-                  <AlertCircle className="h-5 w-5 text-gray-600 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="h-5 w-5 text-gray-600 shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-700">
                     Please select a service package above before filling the
                     booking form.
@@ -453,7 +453,7 @@ export default function ServiceBookingPage() {
                     group relative w-full py-4 font-semibold rounded-xl transition-all duration-500 overflow-hidden
                     ${
                       selectedService
-                        ? "bg-gradient-to-r from-black via-gray-800 to-gray-700 text-white hover:shadow-2xl hover:shadow-black/30 hover:scale-[1.02]"
+                        ? "bg-linear-to-r from-black via-gray-800 to-gray-700 text-white hover:shadow-2xl hover:shadow-black/30 hover:scale-[1.02]"
                         : "bg-gray-300 text-gray-500 cursor-not-allowed"
                     }
                   `}
@@ -473,8 +473,8 @@ export default function ServiceBookingPage() {
                   </span>
                   {selectedService && (
                     <>
-                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/20 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-r from-gray-700 via-gray-600 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </>
                   )}
                 </button>
@@ -488,7 +488,7 @@ export default function ServiceBookingPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold bg-linear-to-r from-black to-gray-700 bg-clip-text text-transparent mb-4">
               Why Choose Our Service?
             </h2>
           </div>
@@ -522,7 +522,7 @@ export default function ServiceBookingPage() {
                   key={idx}
                   className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 text-center"
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-black via-gray-800 to-gray-700 flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 mx-auto rounded-xl bg-linear-to-br from-black via-gray-800 to-gray-700 flex items-center justify-center mb-4">
                     <Icon className="h-7 w-7 text-white" strokeWidth={2.5} />
                   </div>
                   <h3 className="font-bold text-black mb-2">{item.title}</h3>
