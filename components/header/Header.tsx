@@ -136,7 +136,7 @@ const Navbar = ({
           title: "Contact Us",
           description: "We are here to help you with any questions you have",
           icon: <Contact className="size-5 shrink-0" />,
-          url: "#",
+          url: "contact",
         },
         {
           title: "Servicing",
