@@ -248,7 +248,7 @@ export default function ContactUsPage() {
                     )}
                   </span>
                   {/* Shine Effect */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/20 to-transparent" />
                   {/* Hover Gradient */}
                   <div className="absolute inset-0 bg-linear-to-r from-gray-700 via-gray-600 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </button>
@@ -301,7 +301,7 @@ export default function ContactUsPage() {
                     "Quality Service Guaranteed",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-linear-to-br from-white/30 to-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-linear-to-br from-white/30 to-white/10 flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle2 className="h-4 w-4" />
                       </div>
                       <span className="text-white/90">{item}</span>
