@@ -21,6 +21,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Footer } from "@/components/footer2";
 import Navbar from "@/components/header/Header";
+import { Headphones } from "lucide-react";
 
 export default function RootLayout({
   children,
@@ -33,6 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
+
         <div className="">{children}</div>
         <Footer />
       </body>

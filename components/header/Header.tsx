@@ -136,7 +136,7 @@ const Navbar = ({
           title: "Sell Now",
           description: "We are here to help you with any questions you have",
           icon: <Contact className="size-5 shrink-0" />,
-          url: "#",
+          url: "/sellnow",
         },
         {
           title: "Servicing",
