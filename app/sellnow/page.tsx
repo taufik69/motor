@@ -56,24 +56,24 @@ const BRANDS = [
 ];
 
 export default function SellBrandsComponent() {
-  const [hoveredBrand, setHoveredBrand] = React.useState(null);
+  const [hoveredBrand, setHoveredBrand] = React.useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-100 py-20">
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-gradient-to-r from-black to-gray-800 text-white rounded-full shadow-xl">
+          <div className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-linear-to-r from-black to-gray-800 text-white rounded-full shadow-xl">
             <TrendingUp className="h-5 w-5" />
             <span className="text-sm font-bold">Sell or Exchange Now</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-black via-gray-700 to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-black via-gray-700 to-gray-900 bg-clip-text text-transparent">
               আমরা যে সকল ব্র্যান্ড
             </span>
             <br />
-            <span className="bg-gradient-to-r from-gray-800 via-black to-gray-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-gray-800 via-black to-gray-600 bg-clip-text text-transparent">
               কিনি ও এক্সচেঞ্জ করি
             </span>
           </h1>
@@ -115,12 +115,12 @@ export default function SellBrandsComponent() {
               className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-gray-200 hover:border-black hover:-translate-y-3 hover:scale-105"
             >
               {/* Top Gradient Bar */}
-              <div className={`h-2 bg-gradient-to-r ${brand.gradient}`}></div>
+              <div className={`h-2 bg-linear-to-r ${brand.gradient}`}></div>
 
               {/* Icon Section */}
-              <div className="relative p-8 text-center bg-gradient-to-br from-gray-50 to-white">
+              <div className="relative p-8 text-center bg-linear-to-br from-gray-50 to-white">
                 <div
-                  className={`inline-block mb-4 p-6 bg-gradient-to-br ${brand.gradient} rounded-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
+                  className={`inline-block mb-4 p-6 bg-linear-to-br ${brand.gradient} rounded-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
                 >
                   <span className="text-6xl filter drop-shadow-lg">
                     {brand.icon}
@@ -131,7 +131,7 @@ export default function SellBrandsComponent() {
                   {brand.name}
                 </h3>
 
-                <div className="h-1 w-20 bg-gradient-to-r from-transparent via-black to-transparent mx-auto mb-4"></div>
+                <div className="h-1 w-20 bg-linear-to-r from-transparent via-black to-transparent mx-auto mb-4"></div>
               </div>
 
               {/* Content Section */}
@@ -157,7 +157,7 @@ export default function SellBrandsComponent() {
                 </div>
 
                 <button
-                  className={`w-full py-4 bg-gradient-to-r ${brand.gradient} text-white rounded-2xl font-black text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 group-hover:gap-4 hover:scale-105`}
+                  className={`w-full py-4 bg-linear-to-r ${brand.gradient} text-white rounded-2xl font-black text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 group-hover:gap-4 hover:scale-105`}
                 >
                   <span>বিক্রি বা এক্সচেঞ্জ করুন</span>
                   <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
@@ -174,10 +174,10 @@ export default function SellBrandsComponent() {
 
         {/* Bottom CTA */}
         <div className="mt-20 text-center">
-          <div className="relative bg-gradient-to-r from-black via-gray-900 to-black text-white rounded-3xl p-12 shadow-2xl max-w-4xl mx-auto overflow-hidden">
+          <div className="relative bg-linear-to-r from-black via-gray-900 to-black text-white rounded-3xl p-12 shadow-2xl max-w-4xl mx-auto overflow-hidden">
             {/* Animated Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white to-transparent animate-pulse"></div>
             </div>
 
             <div className="relative z-10">
@@ -200,7 +200,7 @@ export default function SellBrandsComponent() {
 
         {/* Additional Info Cards - Black & White */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16">
-          <div className="bg-gradient-to-br from-gray-900 to-black text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-gray-700">
+          <div className="bg-linear-to-br from-gray-900 to-black text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-gray-700">
             <div className="text-4xl mb-3">💰</div>
             <h3 className="text-xl font-bold mb-2">সেরা দাম</h3>
             <p className="text-gray-300 text-sm">
@@ -216,7 +216,7 @@ export default function SellBrandsComponent() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-black to-gray-900 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-gray-700">
+          <div className="bg-linear-to-br from-black to-gray-900 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-gray-700">
             <div className="text-4xl mb-3">🛡️</div>
             <h3 className="text-xl font-bold mb-2">নির্ভরযোগ্য</h3>
             <p className="text-gray-300 text-sm">
