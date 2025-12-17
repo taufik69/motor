@@ -38,6 +38,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import SearchInput from "../input-types-4";
+import Link from "next/link";
 
 interface MenuItem {
   title: string;
@@ -45,6 +46,7 @@ interface MenuItem {
   description?: string;
   icon?: React.ReactNode;
   items?: MenuItem[];
+  query?: string;
 }
 
 interface Navbar1Props {
@@ -85,18 +87,21 @@ const Navbar = ({
           description: "The latest industry news, updates, and info",
           icon: <BikeIcon className="size-5 shrink-0" />,
           url: "/bike",
+          query: "honda",
         },
         {
           title: "Royal Enfiled",
           description: "Our mission is to innovate and empower the world",
           icon: <Trees className="size-5 shrink-0" />,
           url: "/bike",
+          query: "royal-enfield",
         },
         {
           title: "Bajaj",
           description: "Browse job listing and discover our workspace",
           icon: <Sunset className="size-5 shrink-0" />,
           url: "/bike",
+          query: "bajaj",
         },
         {
           title: "Yamaha",
@@ -104,6 +109,7 @@ const Navbar = ({
             "Get in touch with our support team or visit our community forums",
           icon: <Bike className="size-5 shrink-0" />,
           url: "/bike",
+          query: "yamaha",
         },
 
         {
@@ -112,6 +118,7 @@ const Navbar = ({
             "Get in touch with our support team or visit our community forums",
           icon: <CarFrontIcon className="size-5 shrink-0" />,
           url: "/bike",
+          query: "hero",
         },
         {
           title: "See More Bikes",
@@ -119,6 +126,7 @@ const Navbar = ({
             "Get in touch with our support team or visit our community forums",
           icon: <BikeIcon className="size-5 shrink-0" />,
           url: "/bike",
+          query: "",
         },
       ],
     },
@@ -345,9 +353,12 @@ const renderMobileMenuItem = (item: MenuItem) => {
 
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
-    <a
+    <Link
       className="hover:bg-muted hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
-      href={item.url}
+      href={{
+        pathname: item.url,
+        query: { name: item.query },
+      }}
     >
       <div className="text-foreground">{item.icon}</div>
       <div>
@@ -358,7 +369,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 
