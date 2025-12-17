@@ -10,11 +10,9 @@ const UsedBike = ({
 }) => {
   return (
     <div>
-      <SparklesText
-        className={`text-2xl font-bold text-center ${className || ""}`}
-      >
+      <h1 className={`text-2xl font-bold text-center ${className || ""}`}>
         {title || "Used Bike"}
-      </SparklesText>
+      </h1>
       {/* <h2 className="text-2xl font-bold "></h2> */}
       <CardFlip />
     </div>

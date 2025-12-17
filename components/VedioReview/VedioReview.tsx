@@ -71,9 +71,9 @@ const VedioReview = () => {
 
   return (
     <div className="my-12 px-3 relative">
-      <SparklesText className="text-3xl sm:text-4xl font-bold text-center pb-8">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center pb-8">
         Video Review
-      </SparklesText>
+      </h1>
 
       <Slider {...settings}>
         {videos.map((item) => (

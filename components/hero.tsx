@@ -51,7 +51,7 @@ const Hero = ({
 }: Hero1Props) => {
   const { bannerOne, bannerTwo, bannerThree, bannerFour } = imageProvider();
   return (
-    <section className="">
+    <section className="pt-15">
       <div className="container">
         <div className=" ">
           {/* marqure image */}
