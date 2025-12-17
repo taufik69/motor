@@ -9,48 +9,49 @@ import {
   Clock,
   Star,
 } from "lucide-react";
+import Image from "next/image";
 
 const BRANDS = [
   {
     id: 1,
     name: "Yamaha",
     models: ["R15", "FZ", "MT-15", "Ray ZR"],
-    icon: "🏍️",
+    icon: "https://cdn.freebiesupply.com/logos/thumbs/2x/yamaha-2-1-logo.png",
     gradient: "from-gray-900 via-gray-800 to-black",
   },
   {
     id: 2,
     name: "TVS",
     models: ["Apache", "Ntorq", "Raider", "Jupiter"],
-    icon: "⚡",
+    icon: "https://cdn.freebiesupply.com/logos/thumbs/2x/yamaha-2-1-logo.png",
     gradient: "from-black via-gray-900 to-gray-800",
   },
   {
     id: 3,
     name: "Bajaj",
     models: ["Pulsar", "Dominar", "Avenger", "Platina"],
-    icon: "🔥",
+    icon: "https://cdn.freebiesupply.com/logos/thumbs/2x/yamaha-2-1-logo.png",
     gradient: "from-gray-800 via-black to-gray-900",
   },
   {
     id: 4,
     name: "Suzuki",
     models: ["Gixxer", "Access", "Burgman", "Intruder"],
-    icon: "💨",
+    icon: "https://cdn.freebiesupply.com/logos/thumbs/2x/yamaha-2-1-logo.png",
     gradient: "from-gray-900 via-black to-gray-800",
   },
   {
     id: 5,
     name: "Hero",
     models: ["Xpulse", "Splendor", "Passion", "Glamour"],
-    icon: "⭐",
+    icon: "https://cdn.freebiesupply.com/logos/thumbs/2x/yamaha-2-1-logo.png",
     gradient: "from-black via-gray-800 to-gray-900",
   },
   {
     id: 6,
     name: "Honda",
     models: ["CB Shine", "Hornet", "Dio", "Activa"],
-    icon: "🚀",
+    icon: "https://cdn.freebiesupply.com/logos/thumbs/2x/yamaha-2-1-logo.png",
     gradient: "from-gray-800 via-gray-900 to-black",
   },
 ];
@@ -112,18 +113,23 @@ export default function SellBrandsComponent() {
               key={brand.id}
               onMouseEnter={() => setHoveredBrand(brand.id)}
               onMouseLeave={() => setHoveredBrand(null)}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-gray-200 hover:border-black hover:-translate-y-3 hover:scale-105"
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-primary hover:-translate-y-3 hover:scale-105"
             >
               {/* Top Gradient Bar */}
-              <div className={`h-2 bg-linear-to-r ${brand.gradient}`}></div>
+              <div className={`h-0.5 bg-linear-to-r ${brand.gradient}`}></div>
 
               {/* Icon Section */}
               <div className="relative p-8 text-center bg-linear-to-br from-gray-50 to-white">
                 <div
-                  className={`inline-block mb-4 p-6 bg-linear-to-br ${brand.gradient} rounded-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
+                  className={`inline-block mb-4 p-6   rounded-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
                 >
                   <span className="text-6xl filter drop-shadow-lg">
-                    {brand.icon}
+                    <Image
+                      src={brand.icon}
+                      width={100}
+                      height={100}
+                      alt="brand logo"
+                    />
                   </span>
                 </div>
 
@@ -145,9 +151,9 @@ export default function SellBrandsComponent() {
                   {brand.models.map((model, idx) => (
                     <span
                       key={idx}
-                      className={`px-4 py-2 bg-gray-100 text-gray-800 text-sm font-bold rounded-full border-2 transition-all duration-300 hover:scale-110 ${
+                      className={`px-4 py-2 bg-gray-100 text-gray-800 text-sm font-bold rounded-full border transition-all duration-300 hover:scale-110 ${
                         hoveredBrand === brand.id
-                          ? "border-black bg-black text-white shadow-lg"
+                          ? "border-black bg-black cursor-pointer shadow-lg"
                           : "border-gray-300 hover:border-gray-500"
                       }`}
                     >
@@ -199,12 +205,12 @@ export default function SellBrandsComponent() {
         </div>
 
         {/* Additional Info Cards - Black & White */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16">
-          <div className="bg-linear-to-br from-gray-900 to-black text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-gray-700">
-            <div className="text-4xl mb-3">💰</div>
-            <h3 className="text-xl font-bold mb-2">সেরা দাম</h3>
-            <p className="text-gray-300 text-sm">
-              বাজারের সর্বোচ্চ মূল্যে আপনার বাইক বিক্রি করুন
+        <div className="grid md:grid-cols-3 gap-6 max-w-full mx-auto mt-16">
+          <div className="bg-white text-black p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-black">
+            <div className="text-4xl mb-3">⚡</div>
+            <h3 className="text-xl font-bold mb-2">দ্রুত সেবা</h3>
+            <p className="text-gray-600 text-sm">
+              ৩০ মিনিটে মূল্যায়ন এবং তাৎক্ষণিক পেমেন্ট
             </p>
           </div>
 
@@ -216,11 +222,11 @@ export default function SellBrandsComponent() {
             </p>
           </div>
 
-          <div className="bg-linear-to-br from-black to-gray-900 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-gray-700">
-            <div className="text-4xl mb-3">🛡️</div>
-            <h3 className="text-xl font-bold mb-2">নির্ভরযোগ্য</h3>
-            <p className="text-gray-300 text-sm">
-              ১০০% নিরাপদ এবং স্বচ্ছ লেনদেন প্রক্রিয়া
+          <div className="bg-white text-black p-6 rounded-2xl shadow-xl hover:scale-105 transition-transform border-2 border-black">
+            <div className="text-4xl mb-3">⚡</div>
+            <h3 className="text-xl font-bold mb-2">দ্রুত সেবা</h3>
+            <p className="text-gray-600 text-sm">
+              ৩০ মিনিটে মূল্যায়ন এবং তাৎক্ষণিক পেমেন্ট
             </p>
           </div>
         </div>

@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import {
   ArrowRight,
@@ -10,6 +11,7 @@ import {
   ChevronDown,
   Search,
 } from "lucide-react";
+import Link from "next/link";
 
 const ACCESSORIES = [
   {
@@ -129,9 +131,9 @@ export default function AccessoriesListPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-100">
       {/* Top Filter Bar */}
-      <div className="sticky top-0 z-50 bg-white border-b-2 border-gray-200 shadow-lg">
+      <div className="sticky top-0 z-40 bg-white border-b-2 border-gray-200 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Title & Count */}
@@ -254,29 +256,39 @@ export default function AccessoriesListPage() {
             </p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {filteredAccessories.map((item) => (
               <div
                 key={item.id}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-black hover:-translate-y-2"
+                className="group relative w-full cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-white shadow hover:shadow-lg transition-all duration-300 flex flex-col"
               >
-                {/* Discount Badge */}
-                {item.discount > 0 && (
-                  <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-black text-white rounded-full text-xs font-bold">
-                    -{item.discount}%
+                {/* Status Badge */}
+                <div className="absolute top-3 right-3 z-10">
+                  <div
+                    className={`text-white text-xs px-3 py-1.5 rounded-full font-semibold backdrop-blur-sm ${
+                      item.inStock ? "bg-green-500" : "bg-gray-500"
+                    }`}
+                  >
+                    {item.inStock ? `${item.discount}% OFF` : "Out of Stock"}
                   </div>
-                )}
+                </div>
 
                 {/* Wishlist */}
-                <button className="absolute top-3 right-3 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-black hover:text-white transition-all">
-                  <Heart className="h-5 w-5" />
+                <button className="absolute top-3 left-3 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-primary cursor-pointer hover:text-white transition-all">
+                  <Heart className="h-4 w-4" />
                 </button>
 
                 {/* Image */}
-                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center p-8 relative">
-                  <div className="text-7xl group-hover:scale-110 transition-transform duration-300">
-                    {item.image}
+                <div className="relative h-80 w-full overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-8xl transition-transform duration-500 group-hover:scale-110">
+                      <Link href={`/bikedetails/${item.id}`}>{item.image}</Link>
+                    </div>
                   </div>
+
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                   {!item.inStock && (
                     <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
                       <span className="text-white font-bold text-lg">
@@ -286,51 +298,63 @@ export default function AccessoriesListPage() {
                   )}
                 </div>
 
-                {/* Content */}
-                <div className="p-5">
-                  <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-full mb-2">
-                    {item.brand}
-                  </span>
-
-                  <h3 className="text-xl font-black text-gray-900 mb-2 group-hover:text-black transition-colors">
+                {/* Info */}
+                <div className="p-5 space-y-3 grow flex flex-col">
+                  <h3 className="text-base font-bold leading-snug text-gray-900 group-hover:text-primary transition-colors">
                     {item.name}
                   </h3>
 
-                  {/* Rating */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-black text-black" />
-                      <span className="text-sm font-bold text-gray-900">
-                        {item.rating}
-                      </span>
+                  {/* Brand */}
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">
+                      {item.brand}
+                    </span>
+                  </div>
+
+                  {/* Expected Price */}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      <p className="text-xs text-gray-500">Price</p>
+                      <p className="text-lg font-bold text-blue-600">
+                        ৳{item.price}
+                      </p>
                     </div>
-                    <span className="text-sm text-gray-500">
-                      ({item.reviews} reviews)
+                    {item.originalPrice > item.price && (
+                      <span className="text-sm text-gray-400 line-through ml-2">
+                        ৳{item.originalPrice}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Specs Row */}
+                  <div className="flex items-center gap-4 pt-2 pb-3 border-t border-gray-100">
+                    <div className="flex items-center gap-1 text-xs text-gray-600">
+                      <Star className="h-3 w-3 text-yellow-500 shrink-0 fill-yellow-500" />
+                      <span className="font-medium">{item.rating}</span>
+                    </div>
+                    <div className="h-1 w-1 bg-gray-300 rounded-full shrink-0"></div>
+                    <span className="text-xs text-gray-600 font-medium truncate">
+                      {item.reviews} reviews
                     </span>
                   </div>
 
-                  {/* Price */}
-                  <div className="flex items-baseline gap-3 mb-4">
-                    <span className="text-2xl font-black text-black">
-                      ৳{item.price}
-                    </span>
-                    <span className="text-lg text-gray-400 line-through">
-                      ৳{item.originalPrice}
-                    </span>
+                  {/* Action Buttons */}
+                  <div className="flex gap-2 mt-auto pt-2">
+                    <button
+                      disabled={!item.inStock}
+                      className={`flex-1 rounded-full text-xs font-semibold shadow-md h-10 cursor-pointer flex items-center justify-center gap-1 transition-all ${
+                        item.inStock
+                          ? "bg-primary hover:bg-primary/90 text-white"
+                          : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      }`}
+                    >
+                      <ShoppingCart className="h-3 w-3" />
+                      Add to Cart
+                    </button>
+                    <button className="flex-1 rounded-full border border-primary/50 text-primary cursor-pointer hover:bg-blue-50 text-xs font-semibold h-10 transition-all">
+                      View Details
+                    </button>
                   </div>
-
-                  {/* Add to Cart */}
-                  <button
-                    disabled={!item.inStock}
-                    className={`w-full py-3 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2 ${
-                      item.inStock
-                        ? "bg-black text-white hover:bg-gray-800 hover:shadow-xl"
-                        : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    }`}
-                  >
-                    <ShoppingCart className="h-5 w-5" />
-                    {item.inStock ? "Add to Cart" : "Out of Stock"}
-                  </button>
                 </div>
               </div>
             ))}
@@ -340,9 +364,9 @@ export default function AccessoriesListPage() {
 
       {/* Bottom Banner */}
       <div className="max-w-7xl mx-auto px-4 pb-12">
-        <div className="relative bg-gradient-to-r from-black via-gray-900 to-black text-white rounded-3xl p-12 shadow-2xl overflow-hidden">
+        <div className="relative bg-linear-to-r from-black via-gray-900 to-black text-white rounded-3xl p-12 shadow-2xl overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white to-transparent"></div>
           </div>
 
           <div className="relative z-10 text-center">
