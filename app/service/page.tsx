@@ -123,21 +123,6 @@ export default function ServiceBookingPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100">
-      {/* Scrolling Hotline Banner */}
-      <div className="bg-linear-to-r from-black via-gray-800 to-black text-white py-3 overflow-hidden relative">
-        <div className="flex whitespace-nowrap animate-marquee">
-          {[...Array(10)].map((_, i) => (
-            <div key={i} className="inline-flex items-center gap-3 mx-8">
-              <Headphones className="h-5 w-5" />
-              <span className="font-semibold">Service Hotline:</span>
-              <span className="font-bold text-lg">+880 1234-567890</span>
-              <span className="text-gray-400">•</span>
-              <span className="text-gray-300">Book Your Service Now!</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-black/5 via-gray-500/5 to-black/5"></div>
@@ -533,20 +518,6 @@ export default function ServiceBookingPage() {
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }

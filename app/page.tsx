@@ -6,17 +6,19 @@ import VedioReview from "@/components/VedioReview/VedioReview";
 
 const Home = () => {
   return (
-    <div className="container mx-auto">
+    <div>
       <Hero />
-      <QuickAccess />
-      <UsedBike title="Used Bike" className="mt-0 text-3xl" />
-      <UsedBike title="Featured Bike" className="mt-10 text-3xl" />
-      <UsedBike
-        title="Popular Bikes in Bangladesh"
-        className="mt-10 text-3xl"
-      />
-      <VedioReview />
-      <CustomerReview />
+      <div className="container mx-auto">
+        <QuickAccess />
+        <UsedBike title="Used Bike" className="mt-0 text-3xl" />
+        <UsedBike title="Featured Bike" className="mt-10 text-3xl" />
+        <UsedBike
+          title="Popular Bikes in Bangladesh"
+          className="mt-10 text-3xl"
+        />
+        <VedioReview />
+        <CustomerReview />
+      </div>
     </div>
   );
 };

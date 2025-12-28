@@ -51,11 +51,11 @@ const Hero = ({
 }: Hero1Props) => {
   const { bannerOne, bannerTwo, bannerThree, bannerFour } = imageProvider();
   return (
-    <section className="pt-15">
-      <div className="container">
-        <div className=" ">
+    <section className="pt-5">
+      <div>
+        <div>
           {/* marqure image */}
-          <Marquee pauseOnHover={true} repeat={4}>
+          <Marquee pauseOnHover={true} repeat={4} reverse={true}>
             <Image
               src={
                 "https://img.pikbest.com/origin/10/09/97/47rpIkbEsTF3q.jpg!w700wp"
