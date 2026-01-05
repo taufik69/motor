@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 const QuickAccess = () => {
-  const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const accessInfo = [
     {
@@ -122,10 +122,10 @@ const QuickAccess = () => {
                   }}
                 />
                 {/* Diagonal Stripe Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-transparent to-transparent opacity-50"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-black/60 via-transparent to-transparent opacity-50"></div>
 
                 {/* Animated Corner */}
-                <div className="absolute top-0 right-0 w-0 h-0 border-l-[60px] border-l-transparent border-t-[60px] border-t-white group-hover:border-t-black transition-colors duration-300"></div>
+                <div className="absolute top-0 right-0 w-0 h-0 border-l-60 border-l-transparent border-t-60 border-t-white group-hover:border-t-black transition-colors duration-300"></div>
               </div>
 
               {/* Content */}
